@@ -1,3 +1,7 @@
-export const GET_TODO = "GET_TODO"
-export const ADD_TODO = "ADD_TODO"
-export const DELETE_TODO = "DELETE_TODO"
+export const SET_LOCAL_TODO = "SET_LOCAL_TODO"
+export const ADD_LOCAL_TODO = "ADD_LOCAL_TODO"
+export const REMOVE_LOCAL_TODO = "REMOVE_LOCAL_TODO"
+
+export const GET_SAGA_TODO = "GET_SAGA_TODO"
+export const ADD_SAGA_TODO = "ADD_SAGA_TODO"
+export const DELELE_SAGA_TODO = "DELELE_SAGA_TODO"

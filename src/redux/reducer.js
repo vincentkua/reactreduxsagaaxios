@@ -1,20 +1,24 @@
 import { combineReducers } from "redux";
-import { ADD_TODO, DELETE_TODO, GET_TODO } from "./constant";
+import {
+  ADD_LOCAL_TODO,
+  REMOVE_LOCAL_TODO,
+  SET_LOCAL_TODO,
+} from "./constant";
 
-const todoReducer = (data = ["eat", "sleep", "drink"], action) => {
+const todoReducer = (data = [], action) => {
   switch (action.type) {
-    case GET_TODO:
-      console.log("reducer - get todo called");
-      return data;
+    case SET_LOCAL_TODO:
+      console.log("reducer - set local called");
+      return action.data;
 
-    case ADD_TODO:
-      console.log("reducer - add todo called");
+    case ADD_LOCAL_TODO:
+      console.log("reducer - add local todo called");
       return [...data, action.data];
 
-    case DELETE_TODO:
-      console.log("reducer - delete todo called");
-      const newtodo = data.filter(x=> x!==action.data)
-      return newtodo;
+    case REMOVE_LOCAL_TODO:
+      console.log("reducer - remove local todo called");
+      const filteredtodo = data.filter((x) => x.id !== action.id);
+      return filteredtodo;
 
     default:
       return data;

@@ -1,17 +1,24 @@
-import { ADD_TODO, DELETE_TODO } from "./constant"
+import { ADD_SAGA_TODO, DELELE_SAGA_TODO, GET_SAGA_TODO } from "./constant"
 
-export const addTodo = (data) => {
-    console.log("action - add todo called")
+export const getSagaTodo = () => {
+    console.log("action - get saga todo called")
     return {
-        type : ADD_TODO,
+        type : GET_SAGA_TODO,
+    }
+}
+
+export const addSagaTodo = (data) => {
+    console.log("action - add saga todo called")
+    return {
+        type : ADD_SAGA_TODO,
         data : data
     }
 }
 
-export const deleteTodo = (data) => {
-    console.log("action - delete todo called")
+export const deleteSagaTodo = (id) => {
+    console.log("action - delete Saga todo called")
     return {
-        type : DELETE_TODO,
-        data : data
+        type : DELELE_SAGA_TODO,
+        id : id
     }
 }

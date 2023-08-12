@@ -1,17 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, deleteTodo } from "../redux/action";
+import { addSagaTodo, deleteSagaTodo, getSagaTodo } from "../redux/action";
 
 const Main = () => {
     const dispatch = useDispatch();
     const todos = useSelector(state=>state.todoReducer)
     const [newTodo, setNewTodo] = useState("")
     const handleSubmit = () => {
-        dispatch(addTodo(newTodo))
+        dispatch(addSagaTodo(newTodo))
     }
     const handleDelete = (x) => {
-        dispatch(deleteTodo(x))
+        dispatch(deleteSagaTodo(x))
     }
+
+    useEffect(()=>{
+        dispatch(getSagaTodo())
+    },[])
 
     return ( 
     <div style={{padding: "0 10px"}}>
@@ -20,7 +24,7 @@ const Main = () => {
         <input type="text" value={newTodo} onChange={(e)=>setNewTodo(e.target.value)}/> <button onClick={()=>handleSubmit()}>Add New</button>
         <ul>
             {todos.map(x=>(
-                <li key={x}>{x}  <button onClick={()=>handleDelete(x)}>Delete</button></li>
+                <li key={x.id}>{x.item}  <button onClick={()=>handleDelete(x.id)}>Delete</button></li>
             ))}
         </ul>
     </div>
