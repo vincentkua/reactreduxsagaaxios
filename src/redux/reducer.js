@@ -1,9 +1,5 @@
 import { combineReducers } from "redux";
-import {
-  ADD_LOCAL_TODO,
-  REMOVE_LOCAL_TODO,
-  SET_LOCAL_TODO,
-} from "./constant";
+import { ADD_LOCAL_TODO, REMOVE_LOCAL_TODO, SET_LOCAL_TODO } from "./constant";
 
 const todoReducer = (data = [], action) => {
   switch (action.type) {

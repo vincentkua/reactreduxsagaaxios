@@ -15,7 +15,7 @@ const Main = () => {
 
     useEffect(()=>{
         dispatch(getSagaTodo())
-    },[])
+    },[dispatch])
 
     return ( 
     <div style={{padding: "0 10px"}}>
